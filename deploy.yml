@@ -27,6 +27,9 @@ jobs:
   # 构建工作
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./blog-now/
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -37,9 +40,9 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 20.11.0
           cache: pnpm # npm 或 pnpm / yarn
-          cache-dependency-path: './blog-now/pnpm-lock.yaml'
+          # cache-dependency-path: './blog-now/pnpm-lock.yaml'
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Install dependencies
