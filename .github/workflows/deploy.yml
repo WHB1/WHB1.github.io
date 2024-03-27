@@ -42,6 +42,7 @@ jobs:
         with:
           node-version: 20
           cache: pnpm # npm 或 pnpm / yarn
+          cache-dependency-path: './blog-now/package-lock.json'
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Install dependencies
