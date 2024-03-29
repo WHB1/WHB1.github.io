@@ -6,7 +6,7 @@ on:
   # 在针对 `main` 分支的推送上运行。如果你
   # 使用 `master` 分支作为默认分支，请将其更改为 `master`
   push:
-    branches: [master]
+    branches: [main]
 
   # 允许你从 Actions 选项卡手动运行此工作流程
   workflow_dispatch:
@@ -27,9 +27,9 @@ jobs:
   # 构建工作
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./blog-now/
+    # defaults:
+    #  run:
+    #    working-directory: ./blog-now/
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -42,7 +42,7 @@ jobs:
         with:
           node-version: 20
           cache: pnpm # npm 或 pnpm / yarn
-          cache-dependency-path: './blog-now/package-lock.json'
+      #    cache-dependency-path: './blog-now/package-lock.json'
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Install dependencies
