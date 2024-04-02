@@ -39,17 +39,17 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20.11.0
+          node-version: 20
           cache: pnpm # npm 或 pnpm / yarn
-      #    cache-dependency-path: './blog-now/package-lock.json'
-      - name: pnpm install
-        uses: pnpm/action-setup@v3 # 如果使用 pnpm，请取消注释
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
       - name: Install dependencies
         run: pnpm install # npm ci 或 pnpm install / yarn install / bun install
       - name: Build with VitePress
         run: pnpm docs:build # npm run docs:build 或 pnpm docs:build / yarn docs:build / bun run docs:build
+      #    cache-dependency-path: './blog-now/package-lock.json'
+      #- name: pnpm install
+      #  uses: pnpm/action-setup@v3 # 如果使用 pnpm，请取消注释
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
